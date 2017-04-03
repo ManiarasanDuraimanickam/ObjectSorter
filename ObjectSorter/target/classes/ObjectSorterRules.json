@@ -1,0 +1,24 @@
+{
+	"studentSorter":[
+		{
+			"rule":1,
+			"type":"ALL",
+			"field":"name",
+			"reverse":true
+		},
+		{
+			"rule":2,
+			"type":"ALL",
+			"field":"pgt",
+		},
+		{
+			"rule":3,
+			"type":"Specific",
+			"field":"age",
+			"specificfield":"name",
+			"specificvalue":"Arun",
+			"specificOperation":"startsWith",
+			"specificfieldType":"String"
+		}
+	]
+}
