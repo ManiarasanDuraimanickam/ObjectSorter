@@ -1,15 +1,14 @@
 pipeline {
     agent any
-
     stage 'Compile' 
-	cmd 'mvn -DskipTests -Dmaven.test.skip=true -s $MAVEN_SETTINGS -Ddummy.prop=$SONAR_PROPERTIES clean compile' 
+	bat 'mvn clean compile' 
  
 	stage 'Unit Test' 
-	cmd 'mvn -s $MAVEN_SETTINGS verify -P all-tests' 
+	bat 'mvn verify -P all-tests' 
  
 	stage 'Package' 
-	cmd 'mvn -DskipTests -Dmaven.test.skip=true -s $MAVEN_SETTINGS package' 
+	bat 'mvn package' 
  
 	stage 'Verify' 
-	cmd 'mvn -DskipTests -Dmaven.test.skip=true -s $MAVEN_SETTINGS verify' 
+	bat 'mvn verify' 
 }
